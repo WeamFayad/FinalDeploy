@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 name: Build and Push Docker Images to Docker Hub
 
+=======
+>>>>>>> a966cc418d42c8a74b42e940611b36cf704ee603
 on:
   push:
     branches:
@@ -10,6 +13,7 @@ jobs:
     name: Push Backend Docker Image to Docker Hub
     runs-on: ubuntu-latest
     steps:
+<<<<<<< HEAD
       - name: Check out the repo
         uses: actions/checkout@v3
       
@@ -44,3 +48,7 @@ jobs:
           file: ./frontend/dockerfile  # Adjust this to the path to your frontend's Dockerfile
           push: true
           tags: yourusername/frontend-repo:latest  # Replace with your Docker Hub username and desired repository name
+=======
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+>>>>>>> a966cc418d42c8a74b42e940611b36cf704ee603
