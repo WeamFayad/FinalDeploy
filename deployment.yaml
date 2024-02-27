@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: weamfayad18/frontend:2.0.14
+          image: weamfayad18/frontend:2.0.18
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 
 ---
 
@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: weamfayad18/backend:2.0.14
+          image: weamfayad18/backend:2.0.18
           ports:
             - containerPort: 8000
 
@@ -55,7 +55,7 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 80
   type: NodePort
 
@@ -72,6 +72,6 @@ spec:
   ports:
     - name: backend
       protocol: TCP
-      port: 8080
+      port: 8000
       targetPort: 8000
   type: NodePort
