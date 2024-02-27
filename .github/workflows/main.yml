@@ -25,7 +25,7 @@ jobs:
           context: ./backend  # Adjust this to the path of your backend application
           file: ./backend/dockerfile  # Adjust this to the path to your backend's Dockerfile
           push: true
-          tags: yourusername/backend-repo:latest  # Replace with your Docker Hub username and desired repository name
+          tags: weamfayad18/backend:latest  # Replace with your Docker Hub username and desired repository name
 
   push_frontend_to_registry:
     name: Push Frontend Docker Image to Docker Hub
@@ -43,7 +43,7 @@ jobs:
           context: ./frontend  # Adjust this to the path of your frontend application
           file: ./frontend/dockerfile  # Adjust this to the path to your frontend's Dockerfile
           push: true
-          tags: yourusername/frontend-repo:latest  # Replace with your Docker Hub username and desired repository name
+          tags: weamfayad18/frontend:latest  # Replace with your Docker Hub username and desired repository name
 
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
