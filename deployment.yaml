@@ -16,7 +16,7 @@ spec:
         - name: node-backend
           image: weamfayad18/backend:2.0.16
           ports:
-            - containerPort: 3000
+            - containerPort: 8000
 ---
 apiVersion: v1
 kind: Service
@@ -28,8 +28,8 @@ spec:
     app: node-backend
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 8000
+      targetPort: 8000
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -61,55 +61,6 @@ spec:
     app: react-frontend
   ports:
     - protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 80
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mongodb-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mongodb
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mongodb
-  template:
-    metadata:
-      labels:
-        app: mongodb
-    spec:
-      containers:
-        - name: mongodb
-          image: mongo:latest
-          ports:
-            - containerPort: 27017
-          volumeMounts:
-            - name: mongodb-data
-              mountPath: /data/db
-      volumes:
-        - name: mongodb-data
-          persistentVolumeClaim:
-            claimName: mongodb-pvc
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: mongodb-service
-spec:
-  type: ClusterIP
-  selector:
-    app: mongodb
-  ports:
-    - protocol: TCP
-      port: 270
