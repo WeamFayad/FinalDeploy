@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: node-backend
-          image: weamfayad18/backend:2.0.27
+          image: weamfayad18/backend:2.0.29
           ports:
             - containerPort: 8000
 ---
@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
         - name: react-frontend
-          image: weamfayad18/frontend:2.0.27
+          image: weamfayad18/frontend:2.0.29
           ports:
             - containerPort: 80
           env:
