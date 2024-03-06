@@ -52,7 +52,7 @@ spec:
             - containerPort: 80
           env:
             - name: REACT_APP_BACKEND_URL
-              value: "http://node-backend-service:8000"
+              value: "http://node-backend-service.default.svc.cluster.local:8000"
 
 ---
 apiVersion: v1
