@@ -50,6 +50,10 @@ spec:
           image: weamfayad18/frontend:2.0.25
           ports:
             - containerPort: 80
+          env:
+            - name: REACT_APP_BACKEND_URL
+              value: "http://node-backend-service:8000"
+
 ---
 apiVersion: v1
 kind: Service
