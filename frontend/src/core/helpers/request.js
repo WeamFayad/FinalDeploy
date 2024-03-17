@@ -2,7 +2,7 @@ import axios from "axios";
 import { local } from "./localstorage";
 
 // Use REACT_APP_BACKEND_URL if defined; otherwise, fallback to localhost:8000
-const baseURL = process.env.MONGODB_URL || "http://localhost:8000";
+const baseURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
 axios.defaults.baseURL = baseURL;
 
 export const sendRequest = async ({ route, method = "GET", body }) => {
