@@ -16,7 +16,7 @@ spec:
         - name: node-backend
           image: weamfayad18/backend:2.0.43
           ports:
-            - containerPort: 80
+            - containerPort: 8000
 
 ---
 apiVersion: v1
@@ -29,8 +29,8 @@ spec:
     app: node-backend
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 8000
+      targetPort: 8000
 
 ---
 apiVersion: apps/v1
@@ -54,7 +54,7 @@ spec:
         - containerPort: 80
         env:
         - name: REACT_APP_BACKEND_URL
-          value: "http://node-backend-service.default.svc.cluster.local:80"
+          value: "http://node-backend-service:8000"
 
 ---
 apiVersion: v1
@@ -69,5 +69,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-
-
