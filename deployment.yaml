@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: node-backend
-          image: weamfayad18/backend:2.0.48
+          image: weamfayad18/backend12:latest
           ports:
             - containerPort: 8000
 
